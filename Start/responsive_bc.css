@@ -1,0 +1,145 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* So this CSS code essentially hides the hamburger menu as a default? Perhaps discuss the necessity and best practices. Also need to eventually discuss placement of icon and html code (&#9776;)*/
+
+.header__menu {
+  display: none;
+}
+
+/* This wasn't covered in the lesson (although we did touch on basic ordering---1, etc). Please discuss*/
+.hero, .top-news, .scores, .weather, .recent-news {
+  order: 10;
+}
+
+/*Can we talk about this in-depth? */
+@media screen and (max-width: 549px) {
+  
+  .header__logo {
+    height: 48px;
+    margin-right: 0.5em;
+    
+/* The original CSS
+  .header__logo {
+  height: 72px;
+  margin-right: 1em;
+  vertical-align: top;
+  margin-top: 12px;
+  */
+
+  }
+  .header__title {
+    margin-left: 0;
+    font-size: 2em;
+    vertical-align: bottom;
+  }
+  
+  /*.header__title {
+  font-weight: 300;
+  font-size: 4em;
+  margin: 0.5em 0.25em;
+  display: inline-block;
+  color: #212121;
+}*/
+  .nav {
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    position: absolute;
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+  }
+  
+  /*.nav {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
+  .nav.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  
+  
+  /*so this is the new menu that pops up w/hamburger icon*/
+  .nav__item {
+    display: list-item; /*changed from inline block*/
+    border-bottom: 1px solid #E0E0E0;
+    width: 100%;  /* changed from 24% */
+    text-align: left;
+  }
+  /*.nav__item {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 24%;
+  text-align: center;
+  line-height: 24px;
+  padding: 24px;
+  text-transform: uppercase;
+}*/
+
+  .header__menu {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 1em;
+  }
+  
+  .header__menu svg {
+    width: 32px;
+    fill: #E0E0E0;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .hero {
+    order: 0;
+    width: 60%;
+  }
+  .weather {
+    order: 1;
+    width: 40%;
+  }
+   /*a weird right margin shows up if i uncomment this Why is that?*/
+   /*.top-news {
+    order: 2;
+    width: 60%;
+  }
+  .scores {
+    order: 3;
+    width: 40%;
+  }*/
+}
+
+@media screen and (min-width: 700px) {
+  .hero {
+    width: 50%;
+  }
+  .top-news {
+    order: 1;
+    width: 50%;
+  }
+  .scores {
+    order: 2;
+    width: 60%;
+  }
+  .weather {
+    order: 3;
+  }
+}
+
+
+
+@media screen and (min-width: 850px) {
+  main, .header__inner, .nav, .content {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

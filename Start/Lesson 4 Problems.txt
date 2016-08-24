@@ -1,0 +1,103 @@
+###My General Issues With the Project/Suggested Improvements###
+
+
+
+Issue #1  
+Even though you've been introduced to the four responsive patterns, you're just dropped into the middle of the Brighton Times site project and told to tweak the breakpoints. It would have been helpful if students were provided with some basic assumptions/directions, such as:
+1) They have to add the following CSS:
+.content {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+***This wasn't clear and, in looking at the forums, caused a lot of unnecessary trouble.***
+
+2) Even after I added the above CSS and the following breakpoint CSS (contained in the basic answer video):
+
+@media screen and (min-width: 550px) {
+  .hero {
+    order: 0;
+    width: 60%;
+  }
+  .weather {
+    order: 1;
+    width: 40%;
+  }
+}
+  
+  
+The weather section didn't move up until I added:
+  
+  .hero, .top-news, .scores, .weather, .recent-news {
+  order: 10;
+} 
+
+***Although the lesson videos discuss ordering (-1 etc), this code was never mentioned/explained at all. For instance, what is "order: 10"?***
+
+
+
+
+
+
+Issue #2 
+The max-width 549px breakpoint (and the whole Hamburger icon bit) is extremely confusing. While some code (tranform, transition) was explained in the Off Canvas video, there's a lot in the solution that was never touched on. For instance, the actual process of placing the hamburger icon in the html doc and the css code that goes with it:
+
+.nav {
+    z-index: 10;
+
+
+
+Issue #3
+The solution includes a separate responsive.css document. This strategy wasn't really discussed and makes it a bit more challenging to follow exactly what's been done. It also raises some questions about placement of different CSS code if you were only using one main.css document. I know the @media queries, go at the end, but what about:
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__menu {
+  display: none;
+}
+
+.hero, .top-news, .scores, .weather, .recent-news {
+  order: 10;
+}
+
+Topics for Discussion
+
+1) The separate responsive.css vs just using a main.css. 
+
+Also, is the only difference in the html docs (start vs solution) the rel link to responsive.css:
+<link rel="stylesheet" type="text/css" href="responsive.css"> and the addition of the hamburger image tag?
+
+2) Inserting the Hamburger menu
+Can we talk about this and the CSS that goes with it?
+
+<a id="menu" class="header__menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+          </svg>
+        </a>
+        
+    .header__menu {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 1em;
+  }
+  .header__menu svg {
+    width: 32px;
+    fill: #E0E0E0;
+  }
+        
+        
+3) How to tweak the weather section and the hero image. Is that covered in the optimization section. If not, can we discuss. 
+
+4) Philosophical question
+I understand all the concepts covered in the lessons, but, as this project clearly demonstrates, there's a lot of gaps and stuff that's not covered in the projects. Any suggestions for how to approach this? At this point in the course, it seems like I've done a lot of projects but really don't have a clue as to how to take something from the ground up. 
+
+We've covered so much info; I feel like I've lost touch/forgot about some things (ems vs pixels etc.) Any suggestions for how to keep a sense of perspective?
+
+The Jane Doette mock was good in that you went from a mock to a real design. For this project, you're kind of dumped in the middle w/o all you need to know. What's the reality of what a FEWD is expected to know.
+
+  
